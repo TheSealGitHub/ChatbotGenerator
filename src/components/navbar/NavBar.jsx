@@ -11,54 +11,51 @@ import {
     useDisclosure,
   } from '@chakra-ui/react';
 
+  const NAV_ITEMS = [
+    {
+      label: 'Chatbots',
+      children: [
+        {
+          label: 'Crear chatbot',
+          subLabel: 'Genera tu propio chatbot customizado',
+          href: '#',
+        },
+        {
+          label: 'Consultar chatbots',
+          subLabel: 'Consulta todos tus chatbots',
+          href: '#',
+        },
+      ],
+    },
+    {
+      label: 'Procesos',
+      children: [
+        {
+          label: 'Crear proceso',
+          subLabel: 'Genera tus propios procesos',
+          href: '#',
+        },
+        {
+          label: 'Consultar procesos',
+          subLabel: 'Consulta todos tus procesos',
+          href: '#',
+        },
+      ],
+    },
+    {
+      label: 'Saber más',
+      href: '#',
+    },
+    {
+      label: 'OpenAI',
+      href: '#',
+    },
+  ];
+  
 import { FaReact } from 'react-icons/fa';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MobileNav } from './mobilenav/MobileNav';
 import { DesktopNav } from './desktopnav/DesktopNav';
-
-
-
-const NAV_ITEMS = [
-  {
-    label: 'Inspiration',
-    children: [
-      {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Find Work',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Learn Design',
-    href: '#',
-  },
-  {
-    label: 'Hire Designers',
-    href: '#',
-  },
-];
-
 
 export function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -124,7 +121,7 @@ export function NavBar() {
               color={'white'}
               bg={'pink.400'}
               href={'#'}
-              _hover={{ bg: 'pink.300' }}>
+              _hover={{ bg: 'pink.200' }}>
               Sign Up
             </Button>
 
