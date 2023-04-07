@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { 
     Box,
     Text,    
@@ -10,6 +12,8 @@ export function Footer({app_colors}) {
     return (
         <Box
             marginTop={8}
+            justifyContent={'center'}
+            alignItems={'center'}
             bg={app_colors['primary_component_bg_color']}
             color={app_colors['primary_component_text_color']}>
 

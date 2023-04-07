@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { SocialButton } from './SocialButton'
 
 export function GenericSocialButton({label, app_colors, href, icon}) {

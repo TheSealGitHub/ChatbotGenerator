@@ -1,8 +1,14 @@
+import React from 'react'
 
+import './App.css'
 import { HomeMenu } from './components/home/HomeMenu'
 import { NavBar } from './components/navbar/NavBar'
 import { Footer } from './components/footer/Footer'
-import { Fragment } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { MainContainer } from './components/MainContainer'
+import { ChatbotList } from './components/chatbots/listar/ChatbotList'
+import { ProcessList } from './components/procesos/listar/ProcessList'
+import { ProcessForm } from './components/procesos/crear/ProcessForm'
 
 const app_colors = {
   'primary_component_bg_color': 'white',
@@ -16,11 +22,38 @@ const app_colors = {
 
 function App() {
   return (
-    <Fragment>
+    <div className='App'>
       <NavBar app_colors={app_colors}/>
-      <HomeMenu app_colors={app_colors}/>
+      <MainContainer app_colors={app_colors}>
+
+
+        <Routes>
+          <Route 
+              path='/' 
+              element={
+                <HomeMenu app_colors={app_colors}/> 
+          }/>
+          <Route 
+              path='/listar-chatbots' 
+              element={
+                <ChatbotList app_colors={app_colors}/> 
+          }/>
+          <Route 
+              path='/listar-procesos' 
+              element={
+                <ProcessList app_colors={app_colors}/> 
+          }/>
+          <Route 
+              path='/crear-proceso' 
+              element={
+                <ProcessForm app_colors={app_colors}/> 
+          }/>
+        </Routes>
+      
+
+      </MainContainer> 
       <Footer app_colors={app_colors}/>
-    </Fragment>
+    </div>
   )
 }
 

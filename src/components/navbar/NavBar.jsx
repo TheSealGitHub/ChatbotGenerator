@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
     Box,
     Flex,
@@ -9,8 +11,8 @@ import {
   } from '@chakra-ui/react';
 import { FaReact } from 'react-icons/fa';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { MobileNav } from './mobilenav/MobileNav';
-import { DesktopNav } from './desktopnav/DesktopNav';
+import { MobileNav } from './mobile-nav/MobileNav';
+import { DesktopNav } from './desktop-nav/DesktopNav';
 
 const MENU_ITEMS = [
     {
