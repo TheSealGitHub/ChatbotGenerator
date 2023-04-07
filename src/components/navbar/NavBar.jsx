@@ -1,17 +1,18 @@
 import {
     Box,
     Flex,
-    Text,
     IconButton,
     Button,
     Stack,
     Collapse,
-    useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
+    useDisclosure
   } from '@chakra-ui/react';
+import { FaReact } from 'react-icons/fa';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { MobileNav } from './mobilenav/MobileNav';
+import { DesktopNav } from './desktopnav/DesktopNav';
 
-  const NAV_ITEMS = [
+const MENU_ITEMS = [
     {
       label: 'Chatbots',
       children: [
@@ -50,27 +51,24 @@ import {
       label: 'OpenAI',
       href: '#',
     },
-  ];
+];
   
-import { FaReact } from 'react-icons/fa';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { MobileNav } from './mobilenav/MobileNav';
-import { DesktopNav } from './desktopnav/DesktopNav';
 
-export function NavBar() {
+export function NavBar({app_colors}) {
+
   const { isOpen, onToggle } = useDisclosure();
   
     return (
       <Box marginBottom={8}>
         <Flex
-          bg={useColorModeValue('white', 'gray.800')}
-          color={useColorModeValue('gray.600', 'white')}
+          bg={app_colors['primary_component_bg_color']}
+          color={app_colors['primary_component_text_color']}
           minH={'60px'}
           py={{ base: 2 }}
           px={{ base: 4 }}
           borderBottom={1}
           borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.900')}
+          borderColor={app_colors['component_border_color']}
           align={'center'}>
 
           <Flex
@@ -95,7 +93,7 @@ export function NavBar() {
                 variant={'ghost'}/>
   
             <Flex align={"center"} display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav items={NAV_ITEMS}/>
+              <DesktopNav items={MENU_ITEMS} app_colors={app_colors}/>
             </Flex>
           </Flex>
   
@@ -109,19 +107,23 @@ export function NavBar() {
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
+              _hover={{ color: 'black' }}
               variant={'link'}
               href={'#'}>
               Sign In
             </Button>
+
             <Button
               as={'a'}
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
-              bg={'pink.400'}
+              bg={app_colors['details_main_bg_color']}
               href={'#'}
-              _hover={{ bg: 'pink.200' }}>
+              _hover={{ 
+                bg: app_colors['details_hover_bg_color'] 
+              }}>
               Sign Up
             </Button>
 
@@ -129,7 +131,7 @@ export function NavBar() {
         </Flex>
   
         <Collapse in={isOpen} animateOpacity>
-          <MobileNav items={NAV_ITEMS}/>
+          <MobileNav items={MENU_ITEMS} app_colors={app_colors}/>
         </Collapse>
       </Box>
     );

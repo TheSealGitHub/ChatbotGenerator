@@ -1,9 +1,14 @@
-import React from 'react'
-
-import { Stack, Flex, Text, Icon, Collapse, Link, useDisclosure, useColorModeValue } from '@chakra-ui/react'
+import { 
+    Stack, 
+    Flex, 
+    Text, 
+    Icon, 
+    Collapse, 
+    Link, 
+    useDisclosure } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
-export function MobileNavItem({ label, children, href }) {
+export function MobileNavItem({ app_colors, label, children, href }) {
 
     const { isOpen, onToggle } = useDisclosure();
 
@@ -20,7 +25,7 @@ export function MobileNavItem({ label, children, href }) {
             }}>
             <Text
                 fontWeight={600}
-                color={useColorModeValue('gray.600', 'gray.200')}>
+                color={app_colors['primary_component_text_color']}>
                 {label}
             </Text>
             {children && (
@@ -41,7 +46,7 @@ export function MobileNavItem({ label, children, href }) {
                     pl={4}
                     borderLeft={1}
                     borderStyle={'solid'}
-                    borderColor={useColorModeValue('gray.200', 'gray.700')}
+                    borderColor={app_colors['component_border_color']}
                     align={'start'}>
                     {children &&
                         children.map((child) => (

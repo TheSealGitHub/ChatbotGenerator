@@ -1,22 +1,26 @@
-import React from 'react'
-
-import { Link, Stack, Box, Text, Flex, Icon, useColorModeValue } from '@chakra-ui/react'
+import { 
+    Link, 
+    Stack, 
+    Box, 
+    Text, 
+    Flex, 
+    Icon } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons';
 
-export function DesktopSubNav({ label, href, subLabel }) {
+export function DesktopSubNav({ app_colors, label, href, subLabel }) {
   return (
     <Link
         href={href}
         role={'group'}
         display={'block'}
-        p={2}
+        padding={2}
         rounded={'md'}
-        _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+        _hover={{ bg: app_colors['details_hover_bg_color'] }}>
         <Stack direction={'row'} align={'center'}>
             <Box>
                 <Text
                     transition={'all .3s ease'}
-                    _groupHover={{ color: 'pink.400' }}
+                    _groupHover={{ color: app_colors['details_hover_text_color'] }}
                     fontWeight={500}>
                     {label}
                 </Text>

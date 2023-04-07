@@ -1,20 +1,17 @@
-import React from 'react'
-
 import { 
     Box,
     Text,    
     Stack,
-    Container,
-    useColorModeValue } from '@chakra-ui/react';
+    Container } from '@chakra-ui/react';
 import { FooterMenuButtons } from './FooterMenuButtons';
 
-export function Footer({bgLightColor, bgDarkColor}) {
+export function Footer({app_colors}) {
 
     return (
         <Box
             marginTop={8}
-            bg={useColorModeValue(bgLightColor, bgDarkColor)}
-            color={useColorModeValue('gray.700', 'gray.200')}>
+            bg={app_colors['primary_component_bg_color']}
+            color={app_colors['primary_component_text_color']}>
 
             <Container
                 as={Stack}
@@ -26,7 +23,7 @@ export function Footer({bgLightColor, bgDarkColor}) {
                 align={{ base: 'center', md: 'center' }}>
                 
                 <Text>2023 Chatbot Generator. Created by @Aleparicio</Text>
-                <FooterMenuButtons/>
+                <FooterMenuButtons app_colors={app_colors}/>
                 
             </Container>
         </Box>

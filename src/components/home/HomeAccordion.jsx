@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box,
     Accordion, 
     AccordionItem, 
@@ -7,7 +6,8 @@ import { Box,
     AccordionIcon } from '@chakra-ui/react'
 
 const LORE_IPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-const NAV_ITEMS = [
+
+const ACCORDION_ITEMS = [
     {
         title: '¿En qué consiste la aplicación?',
         body: LORE_IPSUM,
@@ -31,21 +31,31 @@ const NAV_ITEMS = [
 ];
 
       
-export function HomeAccordion() {
+export function HomeAccordion({app_colors}) {
   return (
     <Accordion defaultIndex={[0]} allowMultiple>
-        {NAV_ITEMS.map((navItem) => (
-            <AccordionItem key={navItem.id}>
+        {ACCORDION_ITEMS.map((navItem) => (
+            <AccordionItem key={navItem.id} 
+                color={app_colors['primary_component_text_color']}>
+
                 <h2>
                 <AccordionButton 
-                    _expanded={{ bg: 'pink.400', color: 'white' }}
-                    _hover={{ bg: 'pink.200' }} >
+                    _expanded={{ 
+                            bg: app_colors['details_main_bg_color'], 
+                            color: app_colors['details_main_text_color']
+                        }}
+                    _hover={{ 
+                            bg: app_colors['details_hover_bg_color'],
+                            color: app_colors['details_hover_text_color']
+                        }}>
                     <Box as="span" flex='1' textAlign='left' display='flex'>
                         {navItem.title}
                     </Box>
                     <AccordionIcon />
+
                 </AccordionButton>
                 </h2>
+                
                 <AccordionPanel pb={4}>
                     {navItem.body}
                 </AccordionPanel>

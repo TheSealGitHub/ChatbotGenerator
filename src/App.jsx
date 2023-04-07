@@ -1,34 +1,26 @@
-import './App.css'
 
-import { HomeAccordion } from './components/home/HomeAccordion'
-import { HomeCardMenu } from './components/home/HomeCardMenu'
-import { Stack, Box } from '@chakra-ui/react'
+import { HomeMenu } from './components/home/HomeMenu'
 import { NavBar } from './components/navbar/NavBar'
 import { Footer } from './components/footer/Footer'
+import { Fragment } from 'react'
 
-const bg_light_primary_color = 'gray.50';
-const bg_dark_primary_color = 'gray.900';
+const app_colors = {
+  'primary_component_bg_color': 'white',
+  'primary_component_text_color': 'gray.600',
+  'details_main_bg_color': 'pink.400',
+  'details_main_text_color': 'white',
+  'details_hover_bg_color': 'pink.200',
+  'details_hover_text_color': 'white',
+  'component_border_color': 'gray.200'
+}
 
 function App() {
   return (
-    <div id="app-root">
-      <div id="navbar">
-        <NavBar bgLightColor={bg_light_primary_color}
-                bgDarkColor={bg_dark_primary_color}/>
-      </div>
-      <div id="home-box">
-        <Box borderWidth='1px' p={6} boxShadow='lg' rounded='md' bg="#ffffff">
-          <Stack spacing='5%'>
-            <HomeAccordion/>
-            <HomeCardMenu/>
-          </Stack>
-        </Box>
-      </div>
-      <div id="footer">
-        <Footer bgLightColor={bg_light_primary_color}
-                bgDarkColor={bg_dark_primary_color}/>
-      </div>
-    </div>
+    <Fragment>
+      <NavBar app_colors={app_colors}/>
+      <HomeMenu app_colors={app_colors}/>
+      <Footer app_colors={app_colors}/>
+    </Fragment>
   )
 }
 

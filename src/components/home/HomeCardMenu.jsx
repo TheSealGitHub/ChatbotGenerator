@@ -1,4 +1,3 @@
-import React from 'react'
 import { SimpleGrid } from '@chakra-ui/react'
 import { HomeCard } from './card/HomeCard'
 
@@ -25,12 +24,16 @@ const CARD_ITEMS = [
   }
 ];
 
-export function HomeCardMenu() {
+export function HomeCardMenu({app_colors}) {
+  
   return (
     <SimpleGrid columns={4} spacing={10} hideBelow='lg'>
-      {CARD_ITEMS.map((item) => (
-        <HomeCard key={item.id} image={item.image} button_text={item.button_text}/>
-      ))}
+        {CARD_ITEMS.map((item) => (
+            <HomeCard key={item.id} 
+                image={item.image} 
+                button_text={item.button_text}
+                app_colors={app_colors} />
+        ))}
     </SimpleGrid>
   )
 }
