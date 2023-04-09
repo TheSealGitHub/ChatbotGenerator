@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
+import { ListPaginatedNavigation } from '../../generic/list/ListPaginatedNavigation';
 import { 
-    UnorderedList,
-    ListItem } from '@chakra-ui/react';
+    Box,
+    List,
+    Text,
+    ListItem,
+    ListIcon,
+    Divider } from '@chakra-ui/react';
+import { 
+    FiHome,
+    FiInbox } from "react-icons/fi";
 
 const PROCESSES = [
     {
@@ -31,15 +39,40 @@ const PROCESSES = [
     },
 ];
 
+
+
+
+  
 export function ProcessList({app_colors}) {
 
-  return (
-    <UnorderedList>
-        {PROCESSES.map((process) => (
-            <ListItem key={process.id}>
-                {process.name}
-            </ListItem>
-        ))}
-    </UnorderedList>
-  )
+    return (
+        <Fragment>
+            <Box>
+                <List margin={8} alignItems={"left"}>
+                    <ListItem as="a" href="#home">
+                        <ListIcon as={FiHome} />
+                        Home
+                    </ListItem>
+                    <Divider/>
+                    <ListItem as="a" href="#inbox">
+                        <ListIcon as={FiInbox} />
+                        Inbox
+                    </ListItem>
+                    <Divider/>
+                    <ListItem as="a" href="#inbox">
+                        <ListIcon as={FiInbox} />
+                        AAAAAA
+                    </ListItem>
+                    <Divider/>
+                    <ListItem as="a" href="#inbox">
+                        <ListIcon as={FiInbox} />
+                        BBBBBBBB
+                    </ListItem>
+                </List>
+            </Box>
+
+            <ListPaginatedNavigation></ListPaginatedNavigation>
+        </Fragment>
+    );
 }
+
